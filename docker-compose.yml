@@ -1,0 +1,31 @@
+services:
+  api:
+    volumes:
+      - ./vpn.db:/app/vpn.db
+    build: .
+    env_file: .env
+    ports: ["8000:8000"]
+
+  xray:
+    image: ghcr.io/xtls/xray-core:latest
+    command: ["run", "-c", "/etc/xray/config.json"]
+    volumes:
+      - ./protos/xray_reality.json:/etc/xray/config.json:ro
+    ports: ["443:443"]
+
+  singbox:
+    image: ghcr.io/sagernet/sing-box:latest
+    command: ["run", "-c", "/etc/singbox/config.json"]
+    volumes:
+      - ./protos/singbox_ss2022.json:/etc/singbox/config.json:ro
+    ports:
+      - "8443:8443/tcp"
+      - "8443:8443/udp"
+
+  hysteria:
+    image: tobyxdd/hysteria:v2.4.3
+    command: [ "server", "-c", "/etc/hysteria/config.yaml" ]
+    volumes:
+      - ./protos/hysteria:/etc/hysteria:ro    # ← монтируем ПАПКУ целиком
+    ports:
+      - "8444:8444/udp"

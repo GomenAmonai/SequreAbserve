@@ -1,0 +1,6 @@
+listen: :8444
+protocol: udp
+up_mbps: 200
+down_mbps: 200
+password: strongP@ss!
+obfs: chromequic

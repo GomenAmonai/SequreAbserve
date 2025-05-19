@@ -1,0 +1,17 @@
+listen: :8444
+protocol: udp
+
+up_mbps: 200
+down_mbps: 200
+
+tls:
+  cert: /etc/hysteria/cert.pem
+  key:  /etc/hysteria/key.pem
+
+auth:
+  type: password
+  password: strongP@ss!      # ≥ 4 символов
+
+obfs:
+  type: salamander
+  password: s@laM123

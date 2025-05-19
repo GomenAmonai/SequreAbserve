@@ -1,0 +1,14 @@
+# python
+*.py[cod] __pycache__/ .ruff_cache/
+.venv/ env/ venv/
+
+# editors / OS
+.idea/ .vscode/ .DS_Store
+
+# runtime artifacts
+vpn.db
+protos/**/cert.pem
+protos/**/key.pem
+logs/
+# docker
+*.log

@@ -1,0 +1,12 @@
+{
+  "log": { "level": "info" },
+  "inbounds": [{
+    "type": "shadowsocks",
+    "method": "2022-blake3-aes-256-gcm",
+    "password": "BlIkDWtTvajq/Qw4Nrowp1MY/Ty+mj7sooUDlEjuQqQ=",
+    "network": "tcp,udp",
+    "listen": "::",
+    "listen_port": 8443
+  }],
+  "outbounds": [{ "type": "direct" }]
+}

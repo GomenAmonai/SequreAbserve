@@ -1,0 +1,21 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [{
+    "port": 443,
+    "protocol": "vless",
+    "settings": {
+      "clients": [{ "id": "8A1B778C-F6FB-4C83-A5B5-CDE21E9F07D9", "flow": "xtls-rprx-vision" }],
+      "decryption": "none"
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "dest": "www.cloudflare.com:443",
+        "privateKey": "2CP-N8blCYRVmXS8v4IcZfUabsP-ECYQtlVwS6ierHY",
+        "shortIds": ["2b"]
+      }
+    }
+  }],
+  "outbounds": [{ "protocol": "freedom" }]
+}

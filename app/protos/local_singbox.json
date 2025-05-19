@@ -1,0 +1,17 @@
+{
+  "inbounds": [{ "type": "tun", "inet4_address": "172.19.0.2/30" }],
+  "outbounds": [
+    { "tag": "wg", "type": "wireguard", "server": "127.0.0.1", "server_port": 51820,
+      "local_address": ["0.0.0.0/0"], "private_key": "CLIENT_PRIV", "public_key": "SERVER_PUB" },
+
+    { "tag": "ss", "type": "shadowsocks", "server": "127.0.0.1", "server_port": 8443,
+      "method": "2022-blake3-aes-256-gcm", "password": "YOUR_PWD" },
+
+    { "tag": "vless", "type": "vless", "server": "127.0.0.1", "server_port": 443,
+      "uuid": "YOUR_UUID", "flow": "xtls-rprx-vision", "security": "reality",
+      "reality": { "public_key": "SERVER_PUBKEY", "short_id": "2b", "server_name": "www.cloudflare.com" } },
+
+    { "type": "selector", "tag": "AUTO", "default": "wg",
+      "outbounds": ["wg", "ss", "vless"], "auto_select": true, "lazy": true }
+  ]
+}
